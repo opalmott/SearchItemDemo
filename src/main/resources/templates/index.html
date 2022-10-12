@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+ 
+<head>
+    <title>Inicio</title>
+    <meta charset="UTF-8">
+</head>
+ 
+<body>
+    <h1>Inicio</h1>
+    <p th:text="${mensaje}"></p>
+    <p th:text="${saludo}"></p>
+    <br />
+    <br />
+    <a th:href="@{/agregar}">Crear Ubicación</a>
+    <br />
+    <div th:if="${ubieties != null and !ubieties.empty}">
+        <table border="1">
+            <tr>
+                <th>Id Prod</th>
+                <th>Id Store</th>
+                <th>Ubi. Piso</th>
+                <th>Ubi. Estante</th>
+                <th>Ubi. Fila</th>
+                <th>Ubi. Columna</th>
+                <th>Editar</th>
+            </tr>
+            <tr th:each="ubiety : ${ubieties}">
+                <td th:text="${ubiety.idProd}">Muestra Id. Prod</td>
+                <td th:text="${ubiety.idStore}">Muestra Id. Store</td>
+                <td th:text="${ubiety.ubiFloor}">Muestra Piso</td>
+                <td th:text="${ubiety.ubiRack}">Muestra Estante</td>
+                <td th:text="${ubiety.ubiRow}">Muestra Fila</td>
+                <td th:text="${ubiety.ubiCol}">Muestra Columna</td>
+                <td><a th:href="@{/editar(idProd=${ubiety.idProd},idStore=${ubiety.idStore})}" th:text="Editar"></a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${ubieties == null or ubieties.empty}">
+        La lista de Ubicaciones está vacía
+    </div>
+    <div>
+        <p th:text="${ubiety.idProd}"></p>
+        <p th:text="${ubiety.idStore}"></p>
+        <p th:text="${ubiety.ubiFloor}"></p>
+        <p th:text="${ubiety.ubiRack}"></p>
+        <p th:text="${ubiety.ubiRow}"></p>
+        <p th:text="${ubiety.ubiCol}"></p>
+    </div>
+    <!-- Nombre: <span th:text="${persona.nombre}">Muestra Nombre</span>
+    <br/>
+    Apellido: <span th:text="${persona.apellido}">Muestra Apellido</span>
+    <br/>
+    Email: <span th:text="${persona.email}">Muestra email</span>
+    <br/>
+    Teléfono: <span th:text="${persona.telefono}">Muestra Teléfono</span> -->
+</body>
+ 
+</html>

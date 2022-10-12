@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>DATOS DE LA UBICACIÓN</title>
+</head>
+
+<body>
+	<h1>Datos de la Ubicación</h1>
+	<a th:href="@{/}">Regresar</a>
+	<br/>
+	<form th:action="@{/guardar}" method="post" th:object="${storeUbiety}">
+		<div>
+			<label>ID Producto</label>
+			<input type="text" name="idProd" th:field="*{idProd}"/>
+		</div>
+		<div>
+			<label>ID Almacén</label>
+			<input type="text" name="idStore" th:field="*{idStore}"/>
+		</div>
+		<div>
+			<label>Piso</label>
+			<input type="text" name="ubiFloor" th:field="*{ubiFloor}"/>
+		</div>
+		<div>
+			<label>Estante</label>
+			<input type="text" name="ubiRack" th:field="*{ubiRack}"/>
+		</div>
+		<div>
+			<label>Fila</label>
+			<input type="text" name="ubiRow" th:field="*{ubiRow}"/>
+		</div>
+		<div>
+			<label>Columna</label>
+			<input type="text" name="ubiCol" th:field="*{ubiCol}"/>
+		</div>
+<!-- 		<div>
+			<label>Fecha Registro</label>
+			<input type="date" name="fecRegi" th:field="*{fecRegi}"/>
+		</div>
+ -->		
+ 		<input type="submit" name="guardar" value="Guardar"/>
+	</form>
+</body>
+
+</html>
